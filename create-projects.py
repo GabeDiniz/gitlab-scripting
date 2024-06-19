@@ -8,9 +8,16 @@ Usage:
   Create Multiple Projects: py create-project.py "project-prefix" suffix-1,suffix-2,suffix-n
     Example: py create-project.py rocket english,french,spanish 
     >>> Result: rocket.english | rocket.french | rocket.spanish
-    
-Problem:
-Solution:
+
+Problem: Creating and managing multiple projects in GitLab manually can be time-consuming and 
+  prone to errors. There is a need for an automated solution to create single or multiple projects, 
+  and to configure their push rules effectively.
+  
+Solution: The provided Python script automates the creation of single or multiple GitLab projects 
+  and updates their push rules simultaneously. By using the GitLab API, it facilitates the creation of projects 
+  under a specified namespace and handles the configuration of push rules to ensure consistency 
+  and reduce manual effort. The script can be executed with specific parameters to create a single
+  project or multiple projects with a common prefix and different suffixes.
 '''
 
 gitlab_url = "https://gitlab.instance.net"
