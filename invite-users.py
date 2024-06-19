@@ -2,6 +2,16 @@ import requests # pip install requests
 import sys
 import json
 
+'''
+Description: Invite multiple users to multiple projects with this script.
+Usage:
+  Invite user(s): py invite-users.py <username-1>,<username-2>,<username-n>
+  Projects are specified in the constants below.
+
+Problem: 
+Solution: 
+'''
+
 gitlab_url = "https://gitlab.instance.net"
 private_token = "your-private-token" # insert private token here
 projects = ["12642", "12641"] # your projectID(s)
