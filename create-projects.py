@@ -1,6 +1,18 @@
 import gitlab # pip install python-gitlab
 import sys
 
+'''
+Description: create a single or multiple projects, and edit rules with this script.
+Usage:
+  Create Single Project: py create-project.py "Project Name"
+  Create Multiple Projects: py create-project.py "project-prefix" suffix-1,suffix-2,suffix-n
+    Example: py create-project.py rocket english,french,spanish 
+    >>> Result: rocket.english | rocket.french | rocket.spanish
+    
+Problem:
+Solution:
+'''
+
 gitlab_url = "https://gitlab.instance.net"
 private_token = "your-private-token" # insert private token here
 namespace_id = 1111 # GitLab group ID - the group the projects are going under
