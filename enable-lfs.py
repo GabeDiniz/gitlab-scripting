@@ -1,8 +1,10 @@
 import requests # pip install requests
 
 '''
-Description: 
+Description: Track files with git lfs for all project branches.
 Usage:
+  Track files: py enable-lfs.py
+  Specify project and file extension to be tracked below.
 
 Problem: 
 Solution: 
