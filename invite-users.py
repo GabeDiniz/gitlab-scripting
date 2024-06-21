@@ -51,7 +51,7 @@ def add_users(users):
 if __name__ == "__main__":
   # Check if a project name and/or languages is provided as an argument
   if private_token == "":
-    print("[ERROR] Please add your GitLab private token to line 6 of this python file.")
+    print("[ERROR] Please set your GitLab private token in the # Constants section of this python file.")
     sys.exit()
   if not (len(sys.argv) == 2):
     print("Description: Adds listed users to listed projects")

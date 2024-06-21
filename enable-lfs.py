@@ -1,4 +1,5 @@
 import requests # pip install requests
+import sys
 
 '''
 Description: Track files with git lfs for all project branches.
@@ -68,4 +69,7 @@ def main():
     update_gitattributes(branch)
 
 if __name__ == '__main__':
+  if private_token == '':
+    print("[ERROR] Please set your GitLab private token in the # Constants section of this python file.")
+    sys.exit()
   main()

@@ -100,7 +100,7 @@ def create_project(project_name, languages):
 if __name__ == "__main__":
   # Check if private token has been set
   if private_token == '':
-    print("[ERROR] Missing token: please set your private token on line 5 of this python file.")
+    print("[ERROR] Please set your GitLab private token in the # Constants section of this python file.")
   # Check if a project name and/or languages is provided as an argument
   if not (1 < len(sys.argv) < 4):
     print("Usage: python GitLab-AddProjects.py <project_name> <language>,<language-2>,<language-n>")
