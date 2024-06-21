@@ -12,7 +12,7 @@ Usage:
 Problem: Creating and managing multiple projects in GitLab manually can be time-consuming and 
   prone to errors. There is a need for an automated solution to create single or multiple projects, 
   and to configure their push rules effectively.
-  
+
 Solution: The provided Python script automates the creation of single or multiple GitLab projects 
   and updates their push rules simultaneously. By using the GitLab API, it facilitates the creation of projects 
   under a specified namespace and handles the configuration of push rules to ensure consistency 
@@ -20,6 +20,7 @@ Solution: The provided Python script automates the creation of single or multipl
   project or multiple projects with a common prefix and different suffixes.
 '''
 
+# Constants
 gitlab_url = "https://gitlab.instance.net"
 private_token = "your-private-token" # insert private token here
 namespace_id = 1111 # GitLab group ID - the group the projects are going under
@@ -43,7 +44,7 @@ def create_project(project_name, languages):
       try:
         # Create a new language project
         project = gl.projects.create({'name': current_project, 'namespace_id': namespace_id})
-        print(f'Project "{current_project}" created successfully! URL: {project.web_url}')
+        print(f'[PROJECT-CREATION SUCCESS]\nProject "{current_project}" created!\nURL: {project.web_url}')
 
         # Disable push rules
         try:
@@ -55,12 +56,12 @@ def create_project(project_name, languages):
           push_rules.commit_committer_check = False
           push_rules.member_check = False
           push_rules.save()
-          print(f'Push rules for "{current_project}" has been updated!')
+          print(f'[PUSH-RULES UPDATED] Push rules for "{current_project}" has been updated!')
           
       except gitlab.exceptions.GitlabCreateError as e:
-        print(f'Error creating project: {e.response_body}')
+        print(f'[ERROR] error creating project: {e.response_body}')
       except gitlab.exceptions.GitlabUpdateError as e:
-        print(f'Error updating push rules: {e.response_body}')
+        print(f'[ERROR] error updating push rules: {e.response_body}')
   
   else:
     ######################################
@@ -71,7 +72,7 @@ def create_project(project_name, languages):
     try:
       # Create a new project
       project = gl.projects.create({'name': project_name, 'namespace_id': namespace_id})
-      print(f'Project "{project_name}" created successfully! URL: {project.web_url}')
+      print(f'[PROJECT-CREATION SUCCESS]\nProject "{project_name}" created!\nURL: {project.web_url}')
 
       # Update rules
       try:
@@ -83,23 +84,23 @@ def create_project(project_name, languages):
         push_rules.commit_committer_check = True
         push_rules.member_check = True
         push_rules.save()
-        print(f'Push rules for "{project_name}" has been updated!')
+        print(f'[PUSH-RULES UPDATED] Push rules for "{project_name}" has been updated!')
           
     except gitlab.exceptions.GitlabCreateError as e:
-      print(f'Error creating project: {e.response_body}')
+      print(f'[ERROR] error creating project: {e.response_body}')
       quit()
     except gitlab.exceptions.GitlabUpdateError as e:
-      print(f'Error updating push rules: {e.response_body}')
+      print(f'[ERROR] error updating push rules: {e.response_body}')
       quit()
   
-  print("****************************************\nAll projects created successfully\n****************************************")
+  print(f"{'*'*20}\nAll projects created successfully\n{'*'*20}")
 
 
 
 if __name__ == "__main__":
   # Check if private token has been set
   if private_token == '':
-    print("INVALID Token: please set your private token on line 5 of this python file.")
+    print("[ERROR] Missing token: please set your private token on line 5 of this python file.")
   # Check if a project name and/or languages is provided as an argument
   if not (1 < len(sys.argv) < 4):
     print("Usage: python GitLab-AddProjects.py <project_name> <language>,<language-2>,<language-n>")

@@ -12,6 +12,7 @@ Problem:
 Solution: 
 '''
 
+# Constants
 gitlab_url = "https://gitlab.instance.net"
 private_token = "your-private-token" # insert private token here
 projects = ["12642", "12641"] # your projectID(s)
@@ -39,7 +40,7 @@ def add_users(users):
         if invite_response.ok:
           print(f'[SUCCESS] Invited {username} to the project')
         elif response.get("message") == "Member already exists":
-          print(f"[Success] The user {username} already has access to the projects...")
+          print(f"[SUCCESS KIND OF?] The user {username} already has access to the projects...")
         else:
           print(f'[FAILED] Unable to invite {username}, please try to invite the user manually.\nIt is possible the user does not have a GitLab account\n[ERROR]: {invite_response.text}')
 
