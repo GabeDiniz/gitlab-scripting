@@ -7,8 +7,15 @@ Usage:
   Track files: py enable-lfs.py
   Specify project and file extension to be tracked below.
 
-Problem: 
-Solution: 
+Problem: Manually tracking files with Git Large File Storage (LFS) across all 
+  branches in a GitLab project that already exists can be tedious and error-prone. 
+  An automated solution helps to ensure consistency and efficiency in tracking 
+  specific file types with Git LFS across all project branches.
+Solution: The provided Python script automates the process of tracking specific 
+  file types with Git LFS across all branches of a GitLab project. It updates or 
+  creates the .gitattributes file in each branch to include the specified LFS tracking rule. 
+  This script ensures that the specified file types are consistently tracked with Git LFS, 
+  reducing manual effort and potential errors.
 '''
 
 # Constants
