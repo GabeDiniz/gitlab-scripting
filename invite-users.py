@@ -8,8 +8,13 @@ Usage:
   Invite user(s): py invite-users.py <username-1>,<username-2>,<username-n>
   Projects are specified in the constants below.
 
-Problem: 
-Solution: 
+Problem: Manually inviting multiple users to multiple GitLab projects can be a 
+  tedious and error-prone process. There is a need for an automated solution to 
+  streamline the invitation process and ensure consistent access levels across projects.
+Solution: The provided Python script automates the process of inviting multiple users to 
+  specified GitLab projects. By leveraging the GitLab API, it retrieves user IDs based on 
+  usernames and grants them the specified access level to the listed projects. This script 
+  simplifies user management and ensures efficient onboarding of team members.
 '''
 
 # Constants
