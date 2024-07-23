@@ -12,7 +12,6 @@ Usage:
 Problem: Creating and managing multiple projects in GitLab manually can be time-consuming and 
   prone to errors. There is a need for an automated solution to create single or multiple projects, 
   and to configure their push rules effectively.
-
 Solution: The provided Python script automates the creation of single or multiple GitLab projects 
   and updates their push rules simultaneously. By using the GitLab API, it facilitates the creation of projects 
   under a specified namespace and handles the configuration of push rules to ensure consistency 

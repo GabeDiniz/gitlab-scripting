@@ -4,6 +4,9 @@ import sys
 '''
 Description: Recursively list the files under a project directory
 Usage:
+  Search files: py list-project-files.py <project-id> <branch> <repo-directory>
+    Example: py list-project-files.py 12345 master src/unit-tests
+    >>> Result: lists all the files within unit-tests and nested folders
 
 Problem: 
 Solution: 
